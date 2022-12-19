@@ -338,6 +338,16 @@ async function createInitialTags() {
     }
   } 
 
+  async function getAllTags(){
+    try{
+        const{ rows } = await client.query(`
+        SELECT * FROM tags`)
+        return rows
+    }catch(error) {
+        throw error;
+    }
+  }
+
 module.exports = {  
   client,
   createUser,
@@ -349,5 +359,6 @@ module.exports = {
   getAllPosts,
   getPostsByUser, 
   addTagsToPost,
-  getPostsByTagName
+  getPostsByTagName,
+  getAllTags,
 }
