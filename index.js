@@ -1,4 +1,4 @@
-// require('dotenv').config();
+require('dotenv').config();
 const express = require('express');
 const apiRouter = require('./api');
 const morgan = require('morgan');
@@ -7,9 +7,9 @@ const server = express();
 const PORT = 3000;
 client.connect();
 
-server.use('/api', apiRouter);
 server.use(morgan('dev'));
 server.use(express.json())
+server.use('/api', apiRouter);
 
 // **** ROUTES ****//
 // POST /api/users/register
