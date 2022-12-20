@@ -33,7 +33,6 @@ usersRouter.get('/', async (req, res) => {
   
     try {
       const user = await getUserByUsername(username);
-      console.log("I'm the user:", user)
       const token = jwt.sign({id: user.id, username}, process.env.JWT_SECRET)
   
       if (user && user.password == password) {
